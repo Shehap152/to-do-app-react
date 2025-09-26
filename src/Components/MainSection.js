@@ -27,9 +27,9 @@ export default function  MainSection() {
     setAlignment(newAlignment);
     };
     return (
-        <Container p={2} maxWidth = "md" sx={{border :"1px solid black" , padding : "8px", margin : "0px 10px" , borderRadius : "15px"}}>
+        <Container p={2} maxWidth = "md" sx={{padding : "8px", margin : "0px 10px" , borderRadius : "15px" , backgroundColor : "white" , boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)"}}>
             <div style={{backgroundColor :"re"}}>
-                <h1 style={{fontSize : "50px", color:"red"}}>مهامى</h1>
+                <h1 style={{fontSize : "50px", color:"#B22222"}}>مهامى</h1>
                 <ToggleButtonGroup
                     color="error"
                     value={alignment}
@@ -47,7 +47,7 @@ export default function  MainSection() {
                     <TaskBox alignment = {alignment}/>
                     <TaskForm/>
                 </AlertContext.Provider>
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} sx={{marginBottom : "25px"}}>
                     <Alert
                         onClose={handleClose}
                         severity= {type === "error" ? "error" : "success"}

@@ -53,18 +53,9 @@ export default function TaskForm(){
                 <Grid   size={{ xs: 5 }} sx={{ display: 'flex', justifyContent: 'center' , margin : "auto"}} >
                     <Button
                         variant="contained" 
-                        color='error' endIcon={<AddIcon />} 
+                        color='success' endIcon={<AddIcon />} 
                         onClick={()=>{
                             if(taskTitle){
-                                // setId((id)=>{
-                                //     let newId = id + 1;
-                                //     setTasks([...tasks , {id : newId  , title : taskTitle , info : taskInfo , done : false}])
-                                //     setTaskTitle("")
-                                //     setTaskInfo("")
-                                //     setType("add")
-                                //     handleClick()
-                                //     return newId;
-                                // })
                                 setId((id)=> id + 1)
                                 setTasks([...tasks , {id : id  , title : taskTitle , info : taskInfo , done : false}])
                                     setTaskTitle("")

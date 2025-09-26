@@ -20,10 +20,21 @@ export default function AlertEdit(){
     const [info ,setInfo] = useState("")
 
     return(
-        <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>رسالة من مهامى</DialogTitle>
+        <Dialog open={open} onClose={handleClose}
+            PaperProps={{
+                sx: {
+                    borderRadius: "24px",
+                    padding: "12px",
+                    boxShadow: "0 10px 25px rgba(0,0,0,0.25)",
+                    textAlign: "center",
+                    fontFamily: '"Cairo", sans-serif',
+                    maxWidth: "380px"
+                }
+            }}
+        >
+            <DialogTitle  sx={{ textAlign:"center",fontSize: "22px",fontWeight: "700",marginBottom: "12px",color: "red"}}>رسالة من مهامى</DialogTitle>
             <DialogContent>
-                <DialogContentText>
+                <DialogContentText  sx={{color: "#4B5563"}}>
                     Please update the task details below:
                 </DialogContentText>
                 <form onSubmit={handleSubmit} id="subscription-form">
@@ -55,7 +66,7 @@ export default function AlertEdit(){
             </DialogContent>
             <DialogActions>
                 <Button onClick={handleClose}>Cancel</Button>
-                <Button type="submit" form="subscription-form" onClick={()=>{updateTask(taskEditId)}}>
+                <Button color='success' type="submit" form="subscription-form" onClick={()=>{updateTask(taskEditId)}}>
                     Update
                 </Button>
             </DialogActions>

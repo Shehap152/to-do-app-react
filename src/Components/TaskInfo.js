@@ -26,6 +26,19 @@ export default function TaskInfo({title , info , id}){
     const {handleClickOpen , setTaskEditId} = useContext(AlertEditContext)
     const [checkDel , setCheckDel] = useState(false)
 
+
+    const taskDetailsStyle = {
+        backgroundColor: "#F9FAFB",       
+        borderLeft: "4px solid #B22222", 
+        borderRadius: "6px",
+        padding: "12px 16px",
+        marginTop: "8px",
+        color: "#374151",              
+        fontSize: "14px",
+        lineHeight: 1.6,
+        whiteSpace: "pre-wrap",
+    };
+
     useEffect(()=>{
         if(handelBtnTask){
             handleClick()
@@ -69,7 +82,7 @@ export default function TaskInfo({title , info , id}){
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
-                {info}
+                <div style={taskDetailsStyle}>{info}</div>
             </AccordionDetails>
         </Accordion>
     )
