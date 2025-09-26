@@ -41,7 +41,6 @@ export default function AlertEdit(){
                         onChange={(e)=>{setTitle(e.target.value)}}
                     />
                     <TextField
-                        autoFocus
                         margin="dense"
                         id="taskInfo"
                         name="info"
