@@ -10,7 +10,7 @@ import { useContext } from 'react';
 import { useState } from 'react';
  
 export default function TaskForm(){
-    const {tasks ,setTasks,setId} = useContext(TaskContext)
+    const {tasks ,setTasks,id,setId} = useContext(TaskContext)
     const {setType , handleClick} = useContext(AlertContext)
     const [taskTitle , setTaskTitle] = useState("")
     const [taskInfo , setTaskInfo] = useState("")
@@ -56,15 +56,21 @@ export default function TaskForm(){
                         color='error' endIcon={<AddIcon />} 
                         onClick={()=>{
                             if(taskTitle){
-                                setId((id)=>{
-                                    let newId = id + 1;
-                                    setTasks([...tasks , {id : newId  , title : taskTitle , info : taskInfo , done : false}])
+                                // setId((id)=>{
+                                //     let newId = id + 1;
+                                //     setTasks([...tasks , {id : newId  , title : taskTitle , info : taskInfo , done : false}])
+                                //     setTaskTitle("")
+                                //     setTaskInfo("")
+                                //     setType("add")
+                                //     handleClick()
+                                //     return newId;
+                                // })
+                                setId((id)=> id + 1)
+                                setTasks([...tasks , {id : id  , title : taskTitle , info : taskInfo , done : false}])
                                     setTaskTitle("")
                                     setTaskInfo("")
                                     setType("add")
                                     handleClick()
-                                    return newId;
-                                })
                              }else{
                                 setType("error")
                                 handleClick()

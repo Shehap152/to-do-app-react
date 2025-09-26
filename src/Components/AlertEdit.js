@@ -24,7 +24,7 @@ export default function AlertEdit(){
             <DialogTitle>مهامى</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    "Please update the task details below:"
+                    Please update the task details below:
                 </DialogContentText>
                 <form onSubmit={handleSubmit} id="subscription-form">
                     <TextField
