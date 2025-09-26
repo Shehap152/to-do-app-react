@@ -21,7 +21,7 @@ export default function AlertEdit(){
 
     return(
         <Dialog open={open} onClose={handleClose}>
-            <DialogTitle>مهامى</DialogTitle>
+            <DialogTitle>رسالة من مهامى</DialogTitle>
             <DialogContent>
                 <DialogContentText>
                     Please update the task details below:
