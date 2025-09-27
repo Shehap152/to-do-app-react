@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/to-do-app-react/static/css/main.fc2b2245.css",
-    "main.js": "/to-do-app-react/static/js/main.79d8f5b8.js",
+    "main.js": "/to-do-app-react/static/js/main.d57bedc8.js",
     "static/js/453.8d371e8c.chunk.js": "/to-do-app-react/static/js/453.8d371e8c.chunk.js",
     "static/media/Ruwudu-Bold.ttf": "/to-do-app-react/static/media/Ruwudu-Bold.7b9b160cab2ddaf70dd6.ttf",
     "static/media/Newsreader_9pt-Bold.ttf": "/to-do-app-react/static/media/Newsreader_9pt-Bold.7c8a32fdb3e63dd3008d.ttf",
     "index.html": "/to-do-app-react/index.html",
     "main.fc2b2245.css.map": "/to-do-app-react/static/css/main.fc2b2245.css.map",
-    "main.79d8f5b8.js.map": "/to-do-app-react/static/js/main.79d8f5b8.js.map",
+    "main.d57bedc8.js.map": "/to-do-app-react/static/js/main.d57bedc8.js.map",
     "453.8d371e8c.chunk.js.map": "/to-do-app-react/static/js/453.8d371e8c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fc2b2245.css",
-    "static/js/main.79d8f5b8.js"
+    "static/js/main.d57bedc8.js"
   ]
 }
