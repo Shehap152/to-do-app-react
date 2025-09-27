@@ -24,6 +24,7 @@ export default function TaskBox({ alignment }) {
             title={task.title} 
             info={task.info} 
             id={task.id} 
+            done = {task.done}
           />
         ))}
       </Stack>

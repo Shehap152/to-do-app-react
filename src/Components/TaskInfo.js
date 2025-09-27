@@ -19,7 +19,7 @@ import { AlertContext } from '../Contexts/AlertContext';
 import {AlertEditContext} from '../Contexts/AlertEditContext'
 import { useContext , useEffect, useState} from 'react';
 
-export default function TaskInfo({title , info , id}){
+export default function TaskInfo({title , info , id , done}){
     const {tasks , setTasks } = useContext(TaskContext)
     const {handelBtnTask , setHandelBtnTask} = useContext(AlertEditContext)
     const {type ,setType , handleClick} = useContext(AlertContext)
@@ -57,11 +57,11 @@ export default function TaskInfo({title , info , id}){
                         <Box  sx={{display:"flex" ,justifyContent : "space-between" , alignItems : "center"} }>
                             <Typography variant="body1">{title}</Typography>
                             <Stack  direction="row" spacing={2}>
-                                <IconButton component="span" color="success" size="small"
+                                <IconButton component="span" color="success" size="small" disabled = {done}
                                     onClick={(event)=>{event.stopPropagation(); taskdone(id) ; setType("done")}}>
                                     <DoneIcon />
                                 </IconButton>
-                                <IconButton component="span" color="primary" size="small"
+                                <IconButton component="span" color="primary" size="small" disabled = {done}
                                     onClick={(event)=>{
                                         event.stopPropagation();
                                         handleClickOpen();;       

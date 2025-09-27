@@ -47,7 +47,7 @@ export default function  MainSection() {
                     <TaskBox alignment = {alignment}/>
                     <TaskForm/>
                 </AlertContext.Provider>
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} sx={{marginBottom : "25px"}}>
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} sx={{marginBotto : "25px", mt : 2}} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} >
                     <Alert
                         onClose={handleClose}
                         severity= {type === "error" ? "error" : "success"}
