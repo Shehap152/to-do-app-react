@@ -37,6 +37,8 @@ export default function TaskInfo({title , info , id , done}){
         fontSize: "14px",
         lineHeight: 1.6,
         whiteSpace: "pre-wrap",
+        maxWidth: "100%",   
+        wordBreak: "break-word"
     };
 
     useEffect(()=>{
