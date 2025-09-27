@@ -57,7 +57,7 @@ export default function TaskInfo({title , info , id , done}){
                 >
                 <Typography component="span" sx={{width:"100%"}}>{
                         <Box  sx={{display:"flex" ,justifyContent : "space-between" , alignItems : "center"} }>
-                            <Typography variant="body1">{title}</Typography>
+                            <Typography variant="h6" sx={{fontFamily:"newsreader"}}>{title}</Typography>
                             <Stack  direction="row" spacing={2}>
                                 <IconButton component="span" color="success" size="small" disabled = {done}
                                     onClick={(event)=>{event.stopPropagation(); taskdone(id) ; setType("done"); handleClick()}}>

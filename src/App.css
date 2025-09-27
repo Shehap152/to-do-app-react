@@ -7,3 +7,13 @@
   /* background-color: #E5E7EB; */
   background-color: #191b1f;
 }
+
+
+@font-face {
+  font-family:ruwudu;
+  src: url("/public/fonts/Ruwudu-Bold.ttf");
+}
+@font-face {
+  font-family:newsreader;
+  src: url("/public/fonts/Newsreader_9pt-Bold.ttf");
+}
