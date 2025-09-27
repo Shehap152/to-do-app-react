@@ -82,7 +82,7 @@ export default function TaskInfo({title , info , id , done}){
                 </Typography>
             </AccordionSummary>
             <AccordionDetails>
-                <div style={taskDetailsStyle}>{info}</div>
+                <div style={taskDetailsStyle}>{info ? info : "No details available for this task."}</div>
             </AccordionDetails>
         </Accordion>
     )
