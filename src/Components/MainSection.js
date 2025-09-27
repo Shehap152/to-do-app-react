@@ -30,7 +30,7 @@ export default function  MainSection() {
     return (
         <Container p={2} maxWidth = "md" sx={{padding : "8px", margin : "40px 10px" , borderRadius : "15px" , backgroundColor : "white" , boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)"}}>
             <div>
-                <h1 style={{fontSize : "50px", color:"#B22222" ,fontFamily:"ruwudu"}}>مهامى</h1><Divider variant="middle" component="hr" sx={{mb:2 , width:"50%" , margin :" 8px auto" , height : "1px" , backgroundColor : "#B22222"}} />
+                <h1 style={{fontSize : "50px", color:"#B22222" ,fontFamily:"ruwudu"}}>مهامي</h1><Divider variant="middle" component="hr" sx={{mb:2 , width:"50%" , margin :" 8px auto" , height : "1px" , backgroundColor : "#B22222"}} />
                 <ToggleButtonGroup
                     color="error"
                     value={alignment}
