@@ -27,7 +27,7 @@ export default function  MainSection() {
     setAlignment(newAlignment);
     };
     return (
-        <Container p={2} maxWidth = "md" sx={{padding : "8px", margin : "0px 10px" , borderRadius : "15px" , backgroundColor : "white" , boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)"}}>
+        <Container p={2} maxWidth = "md" sx={{padding : "8px", margin : "40px 10px" , borderRadius : "15px" , backgroundColor : "white" , boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)"}}>
             <div style={{backgroundColor :"re"}}>
                 <h1 style={{fontSize : "50px", color:"#B22222"}}>مهامى</h1>
                 <ToggleButtonGroup
@@ -43,11 +43,11 @@ export default function  MainSection() {
                     <ToggleButton value="الكل">الكل</ToggleButton>
                 </ToggleButtonGroup>
             
-                <AlertContext.Provider value={{type:type ,setType : setType , handleClick : handleClick}}>
+                <AlertContext.Provider value={{type:type ,setType : setType , handleClick : handleClick , setOpen : setOpen}}>
                     <TaskBox alignment = {alignment}/>
                     <TaskForm/>
                 </AlertContext.Provider>
-                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} sx={{marginBotto : "25px", mt : 2}} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} >
+                <Snackbar key={new Date().getTime()} open={open} autoHideDuration={6000} onClose={handleClose} sx={{marginBotto : "25px", mt : 2}} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} >
                     <Alert
                         onClose={handleClose}
                         severity= {type === "error" ? "error" : "success"}

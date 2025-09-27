@@ -58,13 +58,13 @@ export default function TaskInfo({title , info , id , done}){
                             <Typography variant="body1">{title}</Typography>
                             <Stack  direction="row" spacing={2}>
                                 <IconButton component="span" color="success" size="small" disabled = {done}
-                                    onClick={(event)=>{event.stopPropagation(); taskdone(id) ; setType("done")}}>
+                                    onClick={(event)=>{event.stopPropagation(); taskdone(id) ; setType("done"); handleClick()}}>
                                     <DoneIcon />
                                 </IconButton>
                                 <IconButton component="span" color="primary" size="small" disabled = {done}
                                     onClick={(event)=>{
                                         event.stopPropagation();
-                                        handleClickOpen();;       
+                                        handleClickOpen();       
                                         setTaskEditId(id)}}>
                                     <EditIcon />
                                 </IconButton>
@@ -75,7 +75,7 @@ export default function TaskInfo({title , info , id , done}){
                                     }}>
                                     <DeleteIcon />
                                 </IconButton>
-                                <ConfirmDel checkDel={checkDel} setCheckDel={setCheckDel} onConfirm = {() => { deleteTask(id); setType("delete");}} />
+                                <ConfirmDel checkDel={checkDel} setCheckDel={setCheckDel} onConfirm = {() => { deleteTask(id); setType("delete"); handleClick()}} />
                             </Stack>
                         </Box>
                     }

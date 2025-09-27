@@ -11,7 +11,7 @@ import { useState } from 'react';
  
 export default function TaskForm(){
     const {tasks ,setTasks,id,setId} = useContext(TaskContext)
-    const {setType , handleClick} = useContext(AlertContext)
+    const {setType , handleClick , setOpen} = useContext(AlertContext)
     const [taskTitle , setTaskTitle] = useState("")
     const [taskInfo , setTaskInfo] = useState("")
     return (
@@ -58,10 +58,10 @@ export default function TaskForm(){
                             if(taskTitle){
                                 setId((id)=> id + 1)
                                 setTasks([...tasks , {id : id  , title : taskTitle , info : taskInfo , done : false}])
-                                    setTaskTitle("")
-                                    setTaskInfo("")
-                                    setType("add")
-                                    handleClick()
+                                setTaskTitle("")
+                                setTaskInfo("")
+                                setType("add")
+                                handleClick()
                              }else{
                                 setType("error")
                                 handleClick()
