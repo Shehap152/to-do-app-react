@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/to-do-app-react/static/css/main.fc2b2245.css",
-    "main.js": "/to-do-app-react/static/js/main.37ee8619.js",
+    "main.css": "/to-do-app-react/static/css/main.7f534c77.css",
+    "main.js": "/to-do-app-react/static/js/main.1b1348b5.js",
     "static/js/453.8d371e8c.chunk.js": "/to-do-app-react/static/js/453.8d371e8c.chunk.js",
     "static/media/Ruwudu-Bold.ttf": "/to-do-app-react/static/media/Ruwudu-Bold.7b9b160cab2ddaf70dd6.ttf",
     "static/media/Newsreader_9pt-Bold.ttf": "/to-do-app-react/static/media/Newsreader_9pt-Bold.7c8a32fdb3e63dd3008d.ttf",
     "index.html": "/to-do-app-react/index.html",
-    "main.fc2b2245.css.map": "/to-do-app-react/static/css/main.fc2b2245.css.map",
-    "main.37ee8619.js.map": "/to-do-app-react/static/js/main.37ee8619.js.map",
+    "main.7f534c77.css.map": "/to-do-app-react/static/css/main.7f534c77.css.map",
+    "main.1b1348b5.js.map": "/to-do-app-react/static/js/main.1b1348b5.js.map",
     "453.8d371e8c.chunk.js.map": "/to-do-app-react/static/js/453.8d371e8c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc2b2245.css",
-    "static/js/main.37ee8619.js"
+    "static/css/main.7f534c77.css",
+    "static/js/main.1b1348b5.js"
   ]
 }
