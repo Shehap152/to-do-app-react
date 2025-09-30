@@ -5,7 +5,7 @@ export const StateContext = createContext()
 
 
 export const StateProvider = ({children})=>{
-    const { tasks, setTasks, id, setId } = useContext(TaskContext);
+    const { tasks, setTasks} = useContext(TaskContext);
     const [state,dispatch] = useReducer(ReducerHandlerTaskForm,tasks)
     useEffect(()=>{setTasks(state)},[state])
     return(
