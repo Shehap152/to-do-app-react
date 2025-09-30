@@ -9,22 +9,16 @@ import EditIcon from '@mui/icons-material/Edit';
 import DoneIcon from '@mui/icons-material/Done';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-
-import ConfirmDel from './ConfirmDel';
-
-
-
 import { TaskContext } from '../Contexts/TaskContext';
 import { AlertContext } from '../Contexts/AlertContext';
 import {AlertEditContext} from '../Contexts/AlertEditContext'
-import { useContext , useEffect, useState} from 'react';
+import { useContext , useEffect} from 'react';
 
-export default function TaskInfo({title , info , id , done}){
+export default function TaskInfo({title , info , id , done , setIdDelTask , setCheckDel}){
     const {tasks , setTasks } = useContext(TaskContext)
     const {handelBtnTask , setHandelBtnTask} = useContext(AlertEditContext)
     const {type ,setType , handleClick} = useContext(AlertContext)
     const {handleClickOpen , setTaskEditId} = useContext(AlertEditContext)
-    const [checkDel , setCheckDel] = useState(false)
 
 
     const taskDetailsStyle = {
@@ -74,10 +68,10 @@ export default function TaskInfo({title , info , id , done}){
                                     onClick={(event)=>{
                                         event.stopPropagation();
                                         setCheckDel(true)
+                                        setIdDelTask(id)
                                     }}>
                                     <DeleteIcon />
                                 </IconButton>
-                                <ConfirmDel checkDel={checkDel} setCheckDel={setCheckDel} onConfirm = {() => { deleteTask(id); setType("delete"); handleClick()}} />
                             </Stack>
                         </Box>
                     }
@@ -88,13 +82,6 @@ export default function TaskInfo({title , info , id , done}){
             </AccordionDetails>
         </Accordion>
     )
-
-    function deleteTask(id){
-        const TheTasks = tasks.filter((task)=>{
-            return task.id !== id
-        })
-        setTasks(TheTasks)
-    }
 
     function taskdone(id){
         const TheTasks = tasks.map((task)=>{
