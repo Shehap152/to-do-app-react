@@ -1,67 +1,119 @@
-import Container from '@mui/material/Container';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
-import Divider from '@mui/material/Divider';
-import TaskForm from './TaskForm';
-import TaskBox from './TaskBox';
-import { useState  , useContext} from 'react';
-import { AlertContext } from '../Contexts/AlertContext';
+import Container from "@mui/material/Container";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import Snackbar from "@mui/material/Snackbar";
+import Alert from "@mui/material/Alert";
+import Divider from "@mui/material/Divider";
+import TaskForm from "./TaskForm";
+import TaskBox from "./TaskBox";
+import { HandleStateOfTasks } from "../Reducers/HandleStateOfTasks";
+import { useContext, useReducer, useEffect } from "react";
+import { TaskContext } from "../Contexts/TaskContext";
+import { AlertContext } from "../Contexts/AlertContext";
+import { SnackbarContext } from "../Contexts/SnackbarContext";
 
 
-export default function  MainSection() {
-    const [open, setOpen] = useState(false);
-    const {type , setType } = useContext(AlertContext)
-    const handleClick = () => {
-        setOpen(true);
-    };
+export default function MainSection() {
 
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-        setOpen(false);
-    };
-    const [alignment, setAlignment] = useState('الكل');
-    const handleChange = (event, newAlignment) => {
-    setAlignment(newAlignment);
-    };
-    return (
-        <Container p={2} maxWidth = "md" sx={{padding : "8px", margin : "40px 20px" , borderRadius : "15px" , backgroundColor : "white" , boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)" , maxHeight :"95vh" , display :"flex" , flexDirection : "column" , justifyContent : "center"}}>
-            <div>
-                <h1 style={{fontSize : "50px", color:"#B22222" ,fontFamily:"ruwudu" , margin :"12px 0px"}}>مهامي</h1><Divider variant="middle" component="hr" sx={{width:"50%" , margin :"10px auto" , height : "1px" , backgroundColor : "#B22222"}} />
-                <ToggleButtonGroup
-                    color="error"
-                    value={alignment}
-                    exclusive
-                    onChange={handleChange}
-                    aria-label="Platform"
-                    size='large'
-                    sx={{mt:0}}
-                    >
-                    <ToggleButton value="غير منجز">غير منجز</ToggleButton>
-                    <ToggleButton value="منجز">منجز</ToggleButton>
-                    <ToggleButton value="الكل">الكل</ToggleButton>
-                </ToggleButtonGroup>
-            
-                <AlertContext.Provider value={{type:type ,setType : setType , handleClick : handleClick , setOpen : setOpen}}>
-                    <TaskBox alignment = {alignment}/>
-                    <TaskForm/>
-                </AlertContext.Provider>
-                <Snackbar key={new Date().getTime()} open={open} autoHideDuration={6000} onClose={handleClose} sx={{marginBotto : "25px", mt : 2}} anchorOrigin={{ vertical: 'top', horizontal: 'center' }} >
-                    <Alert
-                        onClose={handleClose}
-                        severity= {type === "error" ? "error" : "success"}
-                        variant="filled"
-                        sx={{ width: '100%' }}>
-                        {type === "edit"    ? "Message updated successfully!" : type === "done" 
-                                            ? "Task completed successfully!"  : type === "add" 
-                                            ? "New task added successfully!"  : type === "error" ?"Please enter the task title before adding." : "Task deleted successfully!"}
-                    </Alert>
-                </Snackbar>
-            </div>
-        </Container>
-    )
+  const { tasks } = useContext(TaskContext);
+  const { alignment , handleChange , handleClick , handleClose , open , setOpen ,} = useContext(SnackbarContext);
+  const { type, setType } = useContext(AlertContext);
+
+  // Reducer State
+  const [state, dispatchStateOfTasks] = useReducer(HandleStateOfTasks, tasks);
+
+  useEffect(() => {
+    dispatchStateOfTasks({ type: alignment, payload: tasks });
+  }, [alignment, tasks]);
+
+  return (
+    <Container
+      p={2}
+      maxWidth="md"
+      sx={{
+        padding: "8px",
+        margin: "40px 20px",
+        borderRadius: "15px",
+        backgroundColor: "white",
+        boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
+        maxHeight: "95vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <div>
+        <h1
+          style={{
+            fontSize: "50px",
+            color: "#B22222",
+            fontFamily: "ruwudu",
+            margin: "12px 0px",
+          }}
+        >
+          مهامي
+        </h1>
+        <Divider
+          variant="middle"
+          component="hr"
+          sx={{
+            width: "50%",
+            margin: "10px auto",
+            height: "1px",
+            backgroundColor: "#B22222",
+          }}
+        />
+        <ToggleButtonGroup
+          color="error"
+          value={alignment}
+          exclusive
+          onChange={handleChange}
+          aria-label="Platform"
+          size="large"
+          sx={{ mt: 0 }}
+        >
+          <ToggleButton value="غير منجز">غير منجز</ToggleButton>
+          <ToggleButton value="منجز">منجز</ToggleButton>
+          <ToggleButton value="الكل">الكل</ToggleButton>
+        </ToggleButtonGroup>
+
+        <AlertContext.Provider
+          value={{
+            type: type,
+            setType: setType,
+            handleClick: handleClick,
+            setOpen: setOpen,
+          }}
+        >
+          <TaskBox state={state} />
+          <TaskForm />
+        </AlertContext.Provider>
+        <Snackbar
+          key={new Date().getTime()}
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          sx={{ mt: 2 }}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        >
+          <Alert
+            onClose={handleClose}
+            severity={type === "error" ? "error" : "success"}
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            {type === "edit"
+              ? "Message updated successfully!"
+              : type === "done"
+              ? "Task completed successfully!"
+              : type === "add"
+              ? "New task added successfully!"
+              : type === "error"
+              ? "Please enter the task title before adding."
+              : "Task deleted successfully!"}
+          </Alert>
+        </Snackbar>
+      </div>
+    </Container>
+  );
 }
-
